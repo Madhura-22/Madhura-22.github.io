@@ -1,5 +1,6 @@
 loadData().then(data => {
 
+console.log(data);
     
 });
 
@@ -20,4 +21,9 @@ async function loadFile(file) {
     return data;
 }
 
-
+async function loadData() {
+    let s = await loadFile('data/Project_data.csv');
+    return {
+        'suicides': s
+    };
+}
