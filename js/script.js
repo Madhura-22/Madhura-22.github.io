@@ -1,16 +1,10 @@
 loadData().then(data => {
 
+console.log(data);
     
 });
 
-// ******* DATA LOADING *******
-// We took care of that for you
 
-/**
- * A file loading function or CSVs
- * @param file
- * @returns {Promise<T>}
- */
 async function loadFile(file) {
     let data = await d3.csv(file).then(d => {
         let mapped = d.map(g => {
@@ -27,4 +21,9 @@ async function loadFile(file) {
     return data;
 }
 
-
+async function loadData() {
+    let s = await loadFile('data/Project_data.csv');
+    return {
+        'suicides': s
+    };
+}
