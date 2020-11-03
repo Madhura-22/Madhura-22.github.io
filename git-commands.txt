@@ -1,0 +1,22 @@
+#to download the repo:
+git clone https://github.com/Madhura-22/mental-health-india.github.io
+
+#make sure you take all updates before making any changes:
+git pull
+
+#check the status befor proceeding (good practice)
+git status
+
+#Make the changes, then check status again
+git status #this should show the Modified file
+
+#add the files
+git add . (adds all files)
+git add filename (adds a specific file)
+
+#commit changes
+git commit -m "message"
+
+
+#push the changes on the origin master
+git push origin master
