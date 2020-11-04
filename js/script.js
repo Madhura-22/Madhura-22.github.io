@@ -1,8 +1,22 @@
 loadData().then(data => {
 
 console.log(data);
+
+const worldMap = new Map(data);
+
+d3.json('data/Indian_States.json').then(mapData => {
+
+       
+        
+        worldMap.drawMap(mapData); 
+
+
+
+    });
     
 });
+
+
 
 
 async function loadFile(file) {
