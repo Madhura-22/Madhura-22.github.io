@@ -18,7 +18,7 @@ class CountryData {
 }
 class Map{
     constructor(data) {
-        this.projection = d3.geoWinkel3().scale(140)//.translate([365, 225]);
+        this.projection = d3.geoCylindricalEqualArea().scale(800,800).translate([-400, 700]);
         // this.nameArray = data.population.map(d => d.geo.toUpperCase());
         this.suicides = data.suicides;
      
