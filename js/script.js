@@ -37,7 +37,9 @@ async function loadFile(file) {
 
 async function loadData() {
     let s = await loadFile('data/Project_data.csv');
+    let m = await loadFile('data/Project_data2.csv');
     return {
-        'suicides': s
+        'suicides': s,
+        'Total': m
     };
 }
