@@ -3,16 +3,15 @@ loadData().then(data => {
 console.log(data);
 
 const worldMap = new Map(data);
+const barChart = new Bar(data);
 
-d3.json('data/Indian_States.json').then(mapData => {
-
-       
+d3.json('data/Indian_States.json').then(mapData => { 
         
         worldMap.drawMap(mapData); 
 
-
-
     });
+	
+
     
 });
 
@@ -38,8 +37,10 @@ async function loadFile(file) {
 async function loadData() {
     let s = await loadFile('data/Project_data.csv');
     let m = await loadFile('data/Project_data2.csv');
+	let g = await loadFile('data/Project_data3.csv');
     return {
         'suicides': s,
-        'Total': m
+        'Total': m,
+		'Gender': g
     };
 }
