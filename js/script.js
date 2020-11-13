@@ -3,7 +3,7 @@ loadData().then(data => {
 console.log(data);
 
 const worldMap = new Map(data);
-const barChart = new Bar(data);
+
 
 d3.json('data/Indian_States.json').then(mapData => { 
         

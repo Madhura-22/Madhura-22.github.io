@@ -35,6 +35,8 @@ class Map{
 		let mapchart = d3.select("#map-chart").append("svg");
 		let mapLayer=mapchart.append("g").attr("id","mapLayer");
 		let that=this;
+		let barChart = new Bar(this.data);
+		
 		
 		let mapBrew =['rgb(128,0,0)','rgb(178,34,34)','rgb(255,0,0)','rgb(255,69,0)','rgb(255,99,71)','rgb(240,128,128)','rgb(255,160,122)'];
 		let mapRange = [12000,10000,8000,6000,4000,2000,0]; 
@@ -90,7 +92,10 @@ class Map{
 						div.transition()        
 							.duration(500)      
 							.style("opacity", 0);   
-                        });
+                        })
+					.on("click", function(d){
+					barChart.drawBar(that.activeYear,d.properties.NAME_1);
+					});
 
     
     }
