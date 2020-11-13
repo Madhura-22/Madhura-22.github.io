@@ -50,6 +50,7 @@ class Map{
 		
         //Drawing the map 
 		let Gpath = d3.geoPath().projection(this.projection);
+        barChart.drawBar(that.activeYear,"Karnataka");
 
         mapLayer.selectAll("path")
                     .data(world.features)
@@ -94,7 +95,7 @@ class Map{
 							.style("opacity", 0);   
                         })
 					.on("click", function(d){
-					barChart.drawBar(that.activeYear,d.properties.NAME_1);
+					barChart.updateBar(that.activeYear,d.properties.NAME_1);
 					});
 
     

@@ -21,7 +21,8 @@ class Bar{
 		let barLayer=barChart.append("g").attr("id","barLayer");
 
 		let categories=[]
-		for(let i=0;i<16;i++){
+		// console.log("length",trialData.length);
+		for(let i=0;i<trialData.length;i++){
 			if(!categories.includes(trialData[i].Categories))
 			categories.push(trialData[i].Categories)
 		}
@@ -65,7 +66,7 @@ class Bar{
 			
 		   barLayer.selectAll("rect")
 					.data(trialData)
-					.enter().append("rect")
+					.join("rect")
 					  .attr("x", function(d,i) { return xSubgroup(d.Gender)+ x(d.Categories) ; })
 					  .attr("y",function(d){ return 300 - y(d.Total)})
 					  .attr("width", 20)
@@ -87,7 +88,7 @@ class Bar{
 		let barLayer=d3.select("#barLayer");
 
 		let categories=[]
-		for(let i=0;i<16;i++){
+		for(let i=0;i<trialData.length;i++){
 			if(!categories.includes(trialData[i].Categories))
 			categories.push(trialData[i].Categories)
 		}
@@ -131,7 +132,7 @@ class Bar{
 			
 		   barLayer.selectAll("rect")
 					.data(trialData)
-					.enter().append("rect")
+					.join("rect")
 					  .attr("x", function(d,i) { return xSubgroup(d.Gender)+ x(d.Categories) ; })
 					  .attr("y",function(d){ return 300 - y(d.Total)})
 					  .attr("width", 20)
