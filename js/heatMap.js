@@ -25,6 +25,8 @@ class Map{
         this.Total=data.Total
         this.data=data;
 		this.activeYear = 2002;
+        this.selectedState="null";
+        this.barChart = new Bar(this.data);
 		this.draw_Scroll();
      
     }
@@ -35,7 +37,7 @@ class Map{
 		let mapchart = d3.select("#map-chart").append("svg");
 		let mapLayer=mapchart.append("g").attr("id","mapLayer");
 		let that=this;
-		let barChart = new Bar(this.data);
+		//let barChart = new Bar(this.data);
 
 		
 		
@@ -51,7 +53,7 @@ class Map{
 		
         //Drawing the map 
 		let Gpath = d3.geoPath().projection(this.projection);
-        barChart.drawBar(that.activeYear,"Karnataka");
+        this.barChart.drawBar(that.activeYear,"Karnataka");
 
         mapLayer.selectAll("path")
                     .data(world.features)
@@ -96,9 +98,9 @@ class Map{
 							.style("opacity", 0);   
                         })
 					.on("click", function(d){
-
+                    that.selectedState=d.properties.NAME_1;
                     d3.select('#boop').property('checked', false);
-					barChart.updateBar(that.activeYear,d.properties.NAME_1);
+					that.barChart.updateBar(that.activeYear,d.properties.NAME_1);
 					});
 
     
@@ -175,6 +177,11 @@ class Map{
             sliderText.attr('x', yearScale(this.value));
 			that.activeYear = this.value;
 			that.updateMap()
+            if(that.selectedState!="null"){
+                d3.select('#boop').property('checked', false);
+                that.barChart.updateBar(that.activeYear,that.selectedState);
+            }
+           
 			
         });
     

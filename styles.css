@@ -17,14 +17,16 @@
 
 
 .wrapper {
-    width: 1600px;
+    width: 1800px;
 	height: 800px;
-    margin: auto;
+   /* margin: auto;*/
+   display: grid;
+   grid-template-columns: auto auto auto;
 }
 
 .view {
     width: 750px;
-    /*margin: auto;*/
+    margin: auto;
     padding: 5px;
     display: inline-block;
     float: left;
