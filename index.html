@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Visualization – Homework 4</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.20/topojson.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.js"></script>
+    <script src="https://d3js.org/d3-array.v2.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v2.min.js"></script> 
+
+    <link rel="shortcut icon" href="#">     
+    <script src="js/script.js" async></script>
+    <script src="js/heatMap.js" async></script>
+	<script src="js/barChart.js"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>Mental Health In India</h1>
+    </div>
+    <div class="wrapper">
+        <div class="innerWrapper">
+            <div id="map-chart" class="view"></div>
+            <div id="country-detail"></div>
+       
+
+         </div>
+
+
+        <div id="bar-plot" class="view">
+            <div id="toggle">
+
+            <label class="switch">
+              <input id="boop" type="checkbox" class="hidden">
+
+              <span class="slider1 round"> </span>
+            </label>
+            </div>
+        </div>
+	</div>
+
+
+</body>
+
+</html>
