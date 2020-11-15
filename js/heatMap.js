@@ -44,7 +44,9 @@ class Map{
 		let mapBrew =['rgb(128,0,0)','rgb(178,34,34)','rgb(255,0,0)','rgb(255,69,0)','rgb(255,99,71)','rgb(240,128,128)','rgb(255,160,122)'];
 		let mapRange = [12000,10000,8000,6000,4000,2000,0]; 
 
-		let yearTotalData=that.data.Total.filter(d=>d.Year==this.activeYear);
+  //       var keys=[10000-12000,8000-10000,6000-8000,4000-6000,2000-4000,0-2000,0]
+
+		 let yearTotalData=that.data.Total.filter(d=>d.Year==this.activeYear);
 		
 		// Define the div for the tooltip
 		var div = d3.select("body").append("div")   
