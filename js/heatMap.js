@@ -57,6 +57,26 @@ class Map{
 		let Gpath = d3.geoPath().projection(this.projection);
         this.barChart.drawBar(that.activeYear,"Karnataka");
 
+        var svg = d3.select("#mapLayer")
+
+        // Handmade legend
+        svg.append("text").attr("x", 220).attr("y", 120).text("Total suicides in state").style("font-size", "15px").attr("alignment-baseline","left")
+        svg.append("circle").attr("cx",200).attr("cy",140).attr("r", 6).style("fill", "rgb(128,0,0)")
+        svg.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "rgb(178,34,34)")
+        svg.append("text").attr("x", 220).attr("y", 140).text("12000-").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 220).attr("y", 160).text("10000-12000").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("circle").attr("cx",200).attr("cy",180).attr("r", 6).style("fill", "rgb(255,0,0)")
+        svg.append("circle").attr("cx",200).attr("cy",200).attr("r", 6).style("fill", "rgb(255,69,0)")
+        svg.append("text").attr("x", 220).attr("y", 180).text("8000-10000").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 220).attr("y", 200).text("6000-8000").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("circle").attr("cx",200).attr("cy",220).attr("r", 6).style("fill", "rgb(255,99,71)")
+        svg.append("circle").attr("cx",200).attr("cy",240).attr("r", 6).style("fill", "rgb(240,128,128)")
+        svg.append("text").attr("x", 220).attr("y", 220).text("4000-6000").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 220).attr("y", 240).text("2000-4000").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("circle").attr("cx",200).attr("cy",260).attr("r", 6).style("fill", "rgb(255,160,122)")
+        svg.append("text").attr("x", 220).attr("y", 260).text("0-2000").style("font-size", "15px").attr("alignment-baseline","right")
+
+
         mapLayer.selectAll("path")
                     .data(world.features)
                     .enter()
