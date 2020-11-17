@@ -13,6 +13,13 @@ class Bar{
 		let width=700;
 		let height=400;
 
+
+
+
+
+
+		//frgr
+
 		let trialData=this.data.Gender.filter(d=>d.Year==activeYear && d.State==State);
 		console.log(trialData)
 
