@@ -105,6 +105,9 @@ class Map{
 						}
                         })
 						   
+
+
+
 					// Hover tooltip
                     .on("mouseover", function(d) {      
 						div.transition()        
@@ -140,6 +143,12 @@ class Map{
 		let yearTotalData=that.data.Total.filter(d=>d.Year==this.activeYear);
 		
 
+        d3.selectAll(".tooltip").remove();
+
+        var div = d3.select("body").append("div")   
+            .attr("class", "tooltip")               
+            .style("opacity", 0);
+
         mapLayer.selectAll("path")
 				.style("fill",function(d){ 
 					for(let i=0;i<34;i++){
@@ -160,6 +169,21 @@ class Map{
 
 					}
 					})
+                 .on("mouseover", function(d) {      
+                        div.transition()        
+                            .duration(200)      
+                            .style("opacity", .9);      
+                        div .html(that.tooltipRender(d,yearTotalData))  
+                            .style("left", (d3.event.pageX) + "px")     
+                            .style("top", (d3.event.pageY - 28) + "px");    
+                        })                  
+                    .on("mouseout", function(d) {       
+                        div.transition()        
+                            .duration(500)      
+                            .style("opacity", 0);   
+                        })
+
+
 						   
 
     
