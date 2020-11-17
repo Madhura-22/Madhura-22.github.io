@@ -142,6 +142,7 @@ class Map{
 
 		let yearTotalData=that.data.Total.filter(d=>d.Year==this.activeYear);
 		
+		//remove tooltip
 
         d3.selectAll(".tooltip").remove();
 
