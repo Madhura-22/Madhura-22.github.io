@@ -42,7 +42,7 @@ class Map{
 		
 		
 		let mapBrew =['rgb(128,0,0)','rgb(178,34,34)','rgb(255,0,0)','rgb(255,69,0)','rgb(255,99,71)','rgb(240,128,128)','rgb(255,160,122)'];
-		let mapRange = [12000,10000,8000,6000,4000,2000,0]; 
+		let mapRange = [30,25,20,15,10,5,0]; 
 
   //       var keys=[10000-12000,8000-10000,6000-8000,4000-6000,2000-4000,0-2000,0]
 
@@ -60,21 +60,21 @@ class Map{
         var svg = d3.select("#mapLayer")
 
         // Handmade legend
-        svg.append("text").attr("x", 220).attr("y", 120).text("Total suicides in state").style("font-size", "15px").attr("alignment-baseline","left")
+        svg.append("text").attr("x", 220).attr("y", 125).text("% of suicides").style("font-size", "15px").attr("alignment-baseline","left")
         svg.append("circle").attr("cx",200).attr("cy",140).attr("r", 6).style("fill", "rgb(128,0,0)")
         svg.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "rgb(178,34,34)")
-        svg.append("text").attr("x", 220).attr("y", 140).text("12000-").style("font-size", "15px").attr("alignment-baseline","right")
-        svg.append("text").attr("x", 220).attr("y", 160).text("10000-12000").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 220).attr("y", 145).text("30% +").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 220).attr("y", 165).text("25-30%").style("font-size", "15px").attr("alignment-baseline","right")
         svg.append("circle").attr("cx",200).attr("cy",180).attr("r", 6).style("fill", "rgb(255,0,0)")
         svg.append("circle").attr("cx",200).attr("cy",200).attr("r", 6).style("fill", "rgb(255,69,0)")
-        svg.append("text").attr("x", 220).attr("y", 180).text("8000-10000").style("font-size", "15px").attr("alignment-baseline","right")
-        svg.append("text").attr("x", 220).attr("y", 200).text("6000-8000").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 220).attr("y", 185).text("20-25%").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 220).attr("y", 205).text("15-20%").style("font-size", "15px").attr("alignment-baseline","right")
         svg.append("circle").attr("cx",200).attr("cy",220).attr("r", 6).style("fill", "rgb(255,99,71)")
         svg.append("circle").attr("cx",200).attr("cy",240).attr("r", 6).style("fill", "rgb(240,128,128)")
-        svg.append("text").attr("x", 220).attr("y", 220).text("4000-6000").style("font-size", "15px").attr("alignment-baseline","right")
-        svg.append("text").attr("x", 220).attr("y", 240).text("2000-4000").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 220).attr("y", 225).text("10-15%").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 220).attr("y", 245).text("5-10%").style("font-size", "15px").attr("alignment-baseline","right")
         svg.append("circle").attr("cx",200).attr("cy",260).attr("r", 6).style("fill", "rgb(255,160,122)")
-        svg.append("text").attr("x", 220).attr("y", 260).text("0-2000").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 220).attr("y", 265).text("0-5%").style("font-size", "15px").attr("alignment-baseline","right")
 
 
         mapLayer.selectAll("path")
@@ -92,12 +92,12 @@ class Map{
                             var colors=mapBrew,
                                  range = mapRange;
 
-                            return  yearTotalData[i].Total > range[0] ? colors[0] :
-                                    yearTotalData[i].Total > range[1] ? colors[1] :
-                                    yearTotalData[i].Total > range[2] ? colors[2] :
-                                    yearTotalData[i].Total > range[3] ? colors[3] :
-                                    yearTotalData[i].Total> range[4] ? colors[4] :
-                                    yearTotalData[i].Total > range[5] ? colors[5] :
+                            return  yearTotalData[i].Percentage > range[0] ? colors[0] :
+                                    yearTotalData[i].Percentage > range[1] ? colors[1] :
+                                    yearTotalData[i].Percentage > range[2] ? colors[2] :
+                                    yearTotalData[i].Percentage > range[3] ? colors[3] :
+                                    yearTotalData[i].Percentage> range[4] ? colors[4] :
+                                    yearTotalData[i].Percentage > range[5] ? colors[5] :
                                     colors[6];
 
                             }
@@ -138,7 +138,8 @@ class Map{
 		let mapLayer=d3.selectAll("#mapLayer");
 		
 		let mapBrew =['rgb(128,0,0)','rgb(178,34,34)','rgb(255,0,0)','rgb(255,69,0)','rgb(255,99,71)','rgb(240,128,128)','rgb(255,160,122)'];
-		let mapRange = [12000,10000,8000,6000,4000,2000,0]; 
+		let mapRange = [30,25,20,15,10,5,0]; 
+
 
 		let yearTotalData=that.data.Total.filter(d=>d.Year==this.activeYear);
 		
@@ -158,12 +159,12 @@ class Map{
 						var colors=mapBrew,
 							 range = mapRange;
 
-						return  yearTotalData[i].Total > range[0] ? colors[0] :
-								yearTotalData[i].Total > range[1] ? colors[1] :
-								yearTotalData[i].Total > range[2] ? colors[2] :
-								yearTotalData[i].Total > range[3] ? colors[3] :
-								yearTotalData[i].Total> range[4] ? colors[4] :
-								yearTotalData[i].Total > range[5] ? colors[5] :
+						return  yearTotalData[i].Percentage > range[0] ? colors[0] :
+								yearTotalData[i].Percentage > range[1] ? colors[1] :
+								yearTotalData[i].Percentage > range[2] ? colors[2] :
+								yearTotalData[i].Percentage > range[3] ? colors[3] :
+								yearTotalData[i].Percentage> range[4] ? colors[4] :
+								yearTotalData[i].Percentage > range[5] ? colors[5] :
 								colors[6];
 
 						}
