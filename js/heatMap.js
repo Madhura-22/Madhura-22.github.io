@@ -27,6 +27,7 @@ class Map{
 		this.activeYear = 2002;
         this.selectedState="null";
         this.barChart = new Bar(this.data);
+        this.lineChart = new Liney(this.data);
 		this.draw_Scroll();
      
     }
@@ -56,7 +57,7 @@ class Map{
         //Drawing the map 
 		let Gpath = d3.geoPath().projection(this.projection);
         this.barChart.drawBar(that.activeYear,"Karnataka");
-
+        this.lineChart.drawLine(that.activeYear,"Karnataka");
         var svg = d3.select("#mapLayer")
 
         // Handmade legend
@@ -125,7 +126,8 @@ class Map{
 					.on("click", function(d){
                     that.selectedState=d.properties.NAME_1;
                     d3.select('#boop').property('checked', false);
-					that.barChart.updateBar(that.activeYear,d.properties.NAME_1);
+                    that.barChart.updateBar(that.activeYear,d.properties.NAME_1)
+                    that.lineChart.updateLine(that.activeYear,d.properties.NAME_1);
 					});
 
     
@@ -227,7 +229,8 @@ class Map{
 			that.updateMap()
             if(that.selectedState!="null"){
                 d3.select('#boop').property('checked', false);
-                that.barChart.updateBar(that.activeYear,that.selectedState);
+                that.barChart.updateBar(that.activeYear,that.selectedState)
+                that.lineChart.updateLine(that.activeYear,that.selectedState);
             }
            
 			
