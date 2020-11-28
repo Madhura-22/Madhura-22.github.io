@@ -10,7 +10,7 @@ class Bar{
     drawBar(activeYear,State) {
        
 		console.log("happpy")
-		let width=700;
+		let width=900;
 		let height=400;
 
 
@@ -29,7 +29,7 @@ class Bar{
 
 		
 
-		let barChart = d3.select("#bar-plot").append("svg").attr("height",500).attr("width",700);
+		let barChart = d3.select("#bar-plot").append("svg").attr("height",500).attr("width",1000);
 		let barLayer=barChart.append("g").attr("id","barLayer");
 
 		
@@ -39,7 +39,7 @@ class Bar{
 	
 	updateBar(activeYear,State) {
        
-		let width=700;
+		let width=900;
 		let height=400;
 
 
@@ -87,8 +87,12 @@ class Bar{
 		    .range([ 0, 300]);
 
 
-		barLayer.append("g").attr("class","axis-line")
-		     .call(d3.axisLeft(y));
+
+
+		let yaxis=d3.axisLeft(y).scale(y);
+
+		barLayer.append("g")//.attr("class","axis-line")
+		     .call(yaxis);
 
 		
 		
@@ -158,7 +162,7 @@ class Bar{
 		
 		var xSubgroup = d3.scaleBand()
 		    .domain(groups)
-		    .range([0, x.bandwidth()-26])
+		    .range([0, x.bandwidth()-25])
 		    .padding([0.05])
 
 		  
@@ -202,7 +206,7 @@ class Bar{
 
 		var x = d3.scaleBand()
 		      .domain(categories)
-		      .range([0, width])
+		      .range([0, width+20])
 		      .padding([0.2]);
 	
 		
@@ -216,7 +220,7 @@ class Bar{
 
 		var xSubgroup = d3.scaleBand()
 		    .domain(groups)
-		    .range([0, x.bandwidth()-15])
+		    .range([0, 100])
 		    .padding([0.05])
 		
 
