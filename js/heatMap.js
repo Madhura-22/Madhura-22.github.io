@@ -127,6 +127,8 @@ class Map{
                     that.selectedState=d.properties.NAME_1;
                     d3.select('#boop').property('checked', false);
                     that.barChart.updateBar(that.activeYear,d.properties.NAME_1)
+                    // d3.select('option').property('checked', false);
+                    d3.select('.select').property('value',"Select");
                     that.lineChart.updateLine(that.activeYear,d.properties.NAME_1);
 					});
 
