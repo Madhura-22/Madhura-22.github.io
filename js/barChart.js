@@ -9,7 +9,6 @@ class Bar{
 
     drawBar(activeYear,State) {
        
-		console.log("happpy")
 		let width=900;
 		let height=400;
 
@@ -21,7 +20,7 @@ class Bar{
 		//frgr
 
 		let trialData=this.data.Gender.filter(d=>d.Year==activeYear && d.State==State);
-		console.log(trialData)
+
 
 		d3.selectAll(".switch").classed("hidden",true);
 
@@ -46,7 +45,7 @@ class Bar{
 
 		let that=this;
 		let trialData=that.data.Gender.filter(d=>d.Year==activeYear && d.State==State);
-		console.log(trialData)
+
 		
 		
 		let barLayer=d3.select("#barLayer");
@@ -61,7 +60,7 @@ class Bar{
 			if(!categories.includes(trialData[i].Categories))
 			categories.push(trialData[i].Categories)
 		}
-		console.log(categories)
+
 
 		var groups = ["Male", "Female"]
 
@@ -76,7 +75,7 @@ class Bar{
 		    .call(d3.axisBottom(x).tickSize(0));
 			
 		let ticklabel = d3.selectAll(".tick").selectAll("text").attr("transform","rotate(90) translate(8,8)").style("text-anchor", "start");;
-		console.log(ticklabel);
+
 
 	
 		
@@ -124,13 +123,13 @@ class Bar{
 
 
 		if(!this.checked){
-			console.log("toggle on");
+
 
 
 		
 
 		let trialData=that.data.Gender.filter(d=>d.Year==activeYear && d.State==State);
-		console.log(trialData)
+
 		
 		
 		let barLayer=d3.select("#barLayer");
@@ -142,7 +141,7 @@ class Bar{
 			if(!categories.includes(trialData[i].Categories))
 			categories.push(trialData[i].Categories)
 		}
-		console.log(categories)
+
 
 		var groups = ["Male", "Female"]
 
@@ -191,8 +190,7 @@ class Bar{
 
 
 		let AgeData=that.data.Age.filter(d=>d.Year==activeYear && d.State==State);
-		console.log("**************");
-		console.log(AgeData.length)
+
 		
 		
 		let barLayer=d3.select("#barLayer");
@@ -202,7 +200,7 @@ class Bar{
 			if(!categories.includes(AgeData[i].Categories))
 			categories.push(AgeData[i].Categories)
 		}
-		console.log(categories)
+
 
 		var x = d3.scaleBand()
 		      .domain(categories)
@@ -233,7 +231,7 @@ class Bar{
 		barLayer.selectAll("rect")
 					.data(AgeData)
 					.join("rect")
-					  .attr("x", function(d,i) { console.log(xSubgroup(d.Age_group)+x(d.Categories)); return xSubgroup(d.Age_group)+x(d.Categories) ; })
+					  .attr("x", function(d,i) {  return xSubgroup(d.Age_group)+x(d.Categories) ; })
 					  .attr("y",function(d){ return 300 - y(d.Total)})
 					  .attr("width", 20)
 					  .attr("height",function(d){ return y(d.Total)})

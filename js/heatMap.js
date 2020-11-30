@@ -13,8 +13,6 @@ class CountryData {
         this.properties = properties;
         this.geometry = geometry;
         this.total = total;
-        console.log("yayyyyy");
-        console.log(this.total);
     }
 
 }
@@ -83,12 +81,17 @@ class Map{
                     .enter()
                     .append("path")
                     .attr("d", Gpath)
+					.attr("class", function(d){let cname = d.properties.NAME_1; return cname.split(" ").join("");})
+					.style("stroke", "white")
+					.style("stroke-width", "0.6")
 					// Coloring for the heatmap
                     .style("fill",function(d){ 
 
-                        for(let i=0;i<34;i++){
+                        for(let i=0;i<yearTotalData.length;i++){
+						//console.log(yearTotalData);
 
                          if(d.properties.NAME_1==yearTotalData[i].State){
+							 
                             
                             var colors=mapBrew,
                                  range = mapRange;
@@ -107,8 +110,6 @@ class Map{
                         })
 						   
 
-
-
 					// Hover tooltip
                     .on("mouseover", function(d) {      
 						div.transition()        
@@ -124,12 +125,23 @@ class Map{
 							.style("opacity", 0);   
                         })
 					.on("click", function(d){
-                    that.selectedState=d.properties.NAME_1;
-                    d3.select('#boop').property('checked', false);
-                    that.barChart.updateBar(that.activeYear,d.properties.NAME_1)
-                    // d3.select('option').property('checked', false);
-                    d3.select('.select').property('value',"Select");
-                    that.lineChart.updateLine(that.activeYear,d.properties.NAME_1);
+						
+						if(that.selectedState!= "null")
+						{
+							let temp =  that.selectedState.split(" ").join("");
+							let selstate = d3.select("."+ temp);
+							selstate.classed("highlightstate", false);
+						}
+						that.selectedState=d.properties.NAME_1;
+						let classname = d.properties.NAME_1
+						
+						let selstate = d3.select("."+classname.split(" ").join("") );
+						selstate.classed("highlightstate", true);
+						
+						d3.select('#boop').property('checked', false);
+						that.barChart.updateBar(that.activeYear,d.properties.NAME_1)
+						d3.select('.select').property('value',"Select");
+						that.lineChart.updateLine(that.activeYear,d.properties.NAME_1);
 					});
 
     
@@ -157,7 +169,7 @@ class Map{
 
         mapLayer.selectAll("path")
 				.style("fill",function(d){ 
-					for(let i=0;i<34;i++){
+					for(let i=0;i<yearTotalData.length;i++){
 					 if(d.properties.NAME_1==yearTotalData[i].State){
 						
 						var colors=mapBrew,

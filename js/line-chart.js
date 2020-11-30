@@ -67,8 +67,6 @@ class Liney{
           // lineLayer.selectAll(".myYaxis").remove();
           lineLayer.selectAll("path").remove();
        
-        // console.log(totalyears);
-
         let x = d3.scaleBand()
         .domain(totalyears).range([80,width]).padding([0.8]);
         let xAxis = d3.axisBottom(x);

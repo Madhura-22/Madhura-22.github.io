@@ -1,5 +1,13 @@
+path:hover {
+	fill-opacity: .7;
+}
 
 
+.highlightstate
+{
+	
+	fill: grey !important;
+}
 
 #map-chart {
     height: 650px;
