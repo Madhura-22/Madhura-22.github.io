@@ -22,7 +22,7 @@ class Liney{
         }
         totalStates.push("Select")
         let that = this;
-        let select = d3.select("#line-plot").append('select')
+        let select = d3.select("#selection").append('select')
         .attr('class','select')
         .on('change', function(d){
           let selectValue = d3.select('select').property('value');
@@ -36,7 +36,7 @@ class Liney{
 
         d3.selectAll(".select").classed("hidden",true);
 
-        let lineChart = d3.select("#line-plot").append("svg").attr("height",500).attr("width",700);
+        let lineChart = d3.select("#line-plot").append("svg").attr("height",600).attr("width",700);
 
 		let lineLayer= lineChart.append("g").attr("id","lineLayer").attr("transform", "translate(0,20)");
         lineLayer.append("g")

@@ -24,26 +24,55 @@ path:hover {
 }
 
 
+
 .wrapper {
-    width: 1800px;
+   width: 1800px;
 	height: 800px;
    /* margin: auto;*/
-   display: grid;
+   display:grid;
    grid-template-columns: auto auto auto;
+
+   display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
 }
 
 .view {
     width: 750px;
     margin: auto;
     padding: 5px;
-    display: inline-block;
+    /*display: block;*/
     float: left;
 }
 
+/*.div1{ grid-area:1 /1/2/2;}*/
 .innerWrapper {
-    width: 790px;
-    display: inline-block;
-    float: left;
+    /*width: 790px;*/
+    /*display: inline-block;
+    float: left;*/*/
+    grid-area: 1 / 1 / 4 / 2;
+}
+
+.div2 { grid-area: 1/ 2 / 2 / 3; }
+.div3 {
+ 
+ margin-left: 20px;
+ margin-top: 20px;
+ margin-bottom: 10px;
+ grid-area:2/ 2 / 3 / 3; 
+
+}
+.div4 {
+ 
+ margin-top: 20px;
+ grid-area: 3/ 2 / 4 / 3; 
+
+}
+.div5{
+  grid-area: 1/1/2/2;
 }
 
 /* Map hover tooltip styling */

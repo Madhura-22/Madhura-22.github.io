@@ -27,6 +27,7 @@ class Map{
         this.barChart = new Bar(this.data);
         this.lineChart = new Liney(this.data);
 		this.draw_Scroll();
+        this.storyTell();
      
     }
 
@@ -143,6 +144,12 @@ class Map{
 						d3.select('.select').property('value',"Select");
 						that.lineChart.updateLine(that.activeYear,d.properties.NAME_1);
 					});
+
+
+
+
+    //Story Telling
+
 
     
     }
@@ -265,6 +272,34 @@ class Map{
 		let text = "<h3>" + data.properties.NAME_1 + "</h3>" + "<p> total:" + yearTotalData[ind].Total + "</p>";
 		return text;
     }
+
+    storyTell(){
+
+
+        let entirebody = d3.select("body")
+        .append("div")
+          .style("opacity", 0)
+          .attr("id","entirebody")
+          .style("opacity",0)
+          .style("background-color", "white")
+          .style("color", "black")
+         // .style("position","absolute")
+          .attr("class","div5")
+
+        let x=d3.select('#Story').on("click",function(d){
+            console.log("yippeeeee");
+        entirebody
+          .style("opacity", 0.9)
+          .html("story");
+          //.style("top",200+"px");
+
+        })
+        
+       
+
+    }
+
+
 
 
 
