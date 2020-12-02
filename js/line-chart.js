@@ -38,9 +38,9 @@ class Liney{
         .text(function (d) { return d; })
         .property("selected", function(d){ return d === "Select"; });
 
-        d3.selectAll(".select").classed("hidden",true);
+        d3.selectAll("#selection").classed("hidden",true);
 
-        let lineChart = d3.select("#line-plot").append("svg").attr("height",600).attr("width",700);
+        let lineChart = d3.select("#line-plot").append("svg").attr("height",600).attr("width",700).attr("transform","translate(20,0)");
 
 		let lineLayer= lineChart.append("g").attr("id","lineLayer").attr("transform", "translate(0,20)");
 
@@ -56,7 +56,7 @@ class Liney{
 
 	
 	updateLine(activeYear,State) {
-    d3.select(".select").classed("hidden",false);
+    d3.select("#selection").classed("hidden",false);
     d3.selectAll(".axis-line-chart").remove();
     d3.selectAll(".lableline").remove();
 
@@ -121,7 +121,7 @@ class Liney{
 			              .x(function(d) { return x(d.Year); })
 			              .y(function(d) { return y(parseInt(d.Total,10)); }))
 			              .attr("fill", "none")
-			              .attr("stroke", "steelblue")
+			              .attr("stroke", "#003F5C")
 			              .attr("stroke-width", 2.5);
 
 		let totalLength = line1.node().getTotalLength();
@@ -203,7 +203,7 @@ class Liney{
             .x(function(d) { return x(d.Year); })
             .y(function(d) { return y(parseInt(d.Percentage,10)); }))
             .attr("fill", "none")
-            .attr("stroke", "steelblue")
+            .attr("stroke", "#003F5C")
             .attr("stroke-width", 2.5);
 
         let totalLength = line1.node().getTotalLength();
@@ -226,7 +226,7 @@ class Liney{
           .x(function(d) { return x(d.Year); })
           .y(function(d) { return y(parseInt(d.Percentage,10)); }))
           .attr("fill", "none")
-          .attr("stroke", "red")
+          .attr("stroke", "#FF9900")
           .attr("stroke-width", 2.5);
 
 

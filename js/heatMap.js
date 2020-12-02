@@ -134,7 +134,8 @@ class Map{
 						
 						let selstate = d3.select("."+classname.split(" ").join("") );
 						selstate.classed("highlightstate", true);
-						
+                        d3.select('#selected-state').text(that.selectedState);
+                        // d3.select('#bar-header').append("text").attr("class","bar-headings").text("Compare By");
 						d3.select('#boop').property('checked', false);
 						that.barChart.updateBar(that.activeYear,d.properties.NAME_1)
 						d3.select('.select').property('value',"Select");
@@ -286,7 +287,7 @@ class Map{
           .style("left",0)
           .attr("class","div5")
           .style("position","absolute")
-          .style("height",900)
+          .style("height",1800)
           .style("width",1800)
           .classed("hidden",true);
 

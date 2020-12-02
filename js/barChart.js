@@ -22,14 +22,14 @@ class Bar{
 		let trialData=this.data.Gender.filter(d=>d.Year==activeYear && d.State==State);
 
 
-		d3.selectAll(".switch").classed("hidden",true);
+		d3.selectAll("#toggle").classed("hidden",true);
 
 
 
 		
 
-		let barChart = d3.select("#bar-plot").append("svg").attr("height",510).attr("width",1500);
-		let barLayer=barChart.append("g").attr("id","barLayer").attr("transform", "translate(90,100)");
+		let barChart = d3.select("#bar-plot").append("svg").attr("height",510).attr("width",1200);
+		let barLayer=barChart.append("g").attr("id","barLayer").attr("transform", "translate(90,0)");
 
 		
 		
@@ -53,7 +53,7 @@ class Bar{
 
 		d3.selectAll(".axis-line").remove();
 
-		d3.select(".switch").classed("hidden",false);
+		d3.select("#toggle").classed("hidden",false);
 		
 		d3.selectAll(".legend").remove()
 
@@ -244,16 +244,16 @@ class Bar{
 		}
 
 		d3.selectAll(".legend").remove();
-
-		barLayer.append("circle").attr("cx",1000).attr("cy",50).attr("r", 6).style("fill", "#e41a1c").attr("class","legend");
-        barLayer.append("circle").attr("cx",1000).attr("cy",70).attr("r", 6).style("fill", "#377eb8").attr("class","legend");
+		// ','',"","#",""
+		barLayer.append("circle").attr("cx",1000).attr("cy",50).attr("r", 6).style("fill", "#ffa600").attr("class","legend");
+        barLayer.append("circle").attr("cx",1000).attr("cy",70).attr("r", 6).style("fill", "#bc5090").attr("class","legend");
         barLayer.append("text").attr("x", 1020).attr("y", 55).text("0-14").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
         barLayer.append("text").attr("x", 1020).attr("y", 75).text("15-29").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
-        barLayer.append("circle").attr("cx",1000).attr("cy",90).attr("r", 6).style("fill", "#4daf4a").attr("class","legend");
-        barLayer.append("circle").attr("cx",1000).attr("cy",110).attr("r", 6).style("fill", "#BDB821").attr("class","legend");
+        barLayer.append("circle").attr("cx",1000).attr("cy",90).attr("r", 6).style("fill", "#003f5c").attr("class","legend");
+        barLayer.append("circle").attr("cx",1000).attr("cy",110).attr("r", 6).style("fill", "#ff6361").attr("class","legend");
         barLayer.append("text").attr("x", 1020).attr("y", 95).text("30-44").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
         barLayer.append("text").attr("x", 1020).attr("y", 115).text("45-59").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
-        barLayer.append("circle").attr("cx",1000).attr("cy",135).attr("r", 6).style("fill", "#21B3BD").attr("class","legend");
+        barLayer.append("circle").attr("cx",1000).attr("cy",135).attr("r", 6).style("fill", "#068f06").attr("class","legend");
         barLayer.append("text").attr("x", 1020).attr("y", 140).text("60+").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
 
 
@@ -282,7 +282,7 @@ class Bar{
 
 		var color = d3.scaleOrdinal()
 		    .domain(groups)
-		    .range(['#ffa600','#bc5090',"#003f5c","#ff6361","#095427"])
+		    .range(['#ffa600','#bc5090',"#003f5c","#ff6361","#068f06"])
 			
 		barLayer.selectAll("rect")
 					.data(AgeData)
