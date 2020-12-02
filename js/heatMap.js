@@ -251,6 +251,7 @@ class Map{
                 d3.select('#boop').property('checked', false);
                 that.barChart.updateBar(that.activeYear,that.selectedState)
                 that.lineChart.updateLine(that.activeYear,that.selectedState);
+                
             }
            
 			
