@@ -52,7 +52,7 @@ path:hover {
 .innerWrapper {
     /*width: 790px;*/
     /*display: inline-block;
-    float: left;*/*/
+    float: left;*/
     grid-area: 1 / 1 / 4 / 2;
 }
 
