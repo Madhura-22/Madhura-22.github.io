@@ -261,7 +261,7 @@ class Map{
 	
 	tooltipRender(data,yearTotalData) {
 		let ind;
-		for(let i=0;i<34;i++){
+		for(let i=0;i<yearTotalData.length;i++){
             if(data.properties.NAME_1==yearTotalData[i].State)
 			{
 				ind = i;
@@ -322,9 +322,10 @@ class Map{
               .style("position","relative")
               .style("color", "black")
               .attr("id","tooltip1")
-              .html("This visualization allows you to explore all these relations, we hope the information will allow viewers to recognize the importance of mental health and help themselves and people around them. 800-273-8255 and  1800 233 3330  are suicide prevention hotlines in the US and India respectively. Help is available.");
+              .html("<p>Seleting a state provides a detailed view, consisting of a bar chart(grouped by gender or age-groups) to study the split between the reasons for suicide and a line chart with a compare feature to compare the suicide rates for two states over time</p>"+"<p> This visualization allows you to explore the relationships between causes and gender ,age-groups that helps identify information such as the leading cause for suicide across both genders and age-groups is relationship troubles"+"<p>we hope the information will allow viewers to recognize the importance of mental health and help themselves and people around them. 800-273-8255 and  1800 233 3330  are suicide prevention hotlines in the US and India respectively. Help is available.</p>");
 
-
+			
+			let storytext2 = "<h3> Least suicide rate </h3>" + "<p> Name:Uttar Pradesh </p>" +  "<p> Population: 199812</p>" + "<p> Suicide Rate: 2%</p>"
              let tooltip2 = d3.select("body")
             .append("div")
              // .attr("class", "tooltip")
@@ -333,57 +334,66 @@ class Map{
               .style("padding", "10px")
               .attr("style", "outline: solid black;")
               .style("left",620+ "px")     
-              .style("width",140+"px")
-              .style("top",  -500 + "px")
+              .style("width",150+"px")
+              .style("top",  -508 + "px")
               .style("position","relative")
               .style("color", "black")
               .attr("id","tooltip1")
-              .html("Among states with a population greater than 10,000 people Kerala had the least suicide rates(2%)");
+              .html(storytext2);
 
 
+			let storytext3 = "<h3> Highest suicide rate </h3>" + "<p> Name:Kerala </p>" +  "<p> Population: 33406</p>" + "<p> Suicide Rate: 29%</p>"
                let tooltip3 = d3.select("body")
             .append("div")
-             //.style("opacity", 0)
-             // .attr("class", "tooltip")
               .style("background-color", "red")
               .style("border-radius", "5px")
               .style("padding", "10px")
               
               .attr("style", "outline: solid black;")
-              .style("width",140+"px")
+              .style("width",160+"px")
               .style("left",140+ "px")     
-              .style("top",  -350 + "px")
+              .style("top",  -435 + "px")
               .style("position","relative")
               .style("color", "black")
               .attr("id","tooltip3")
-              .html("Among states with a population greater than 10,000 people Kerala had the worst suicide rates(29%)");
+              .html(storytext3);
 
-              let line3=d3.select("#tooltip3").append("line")
-                      .attr("x1",120)
-                      .style("opacity",0)
-                      .attr("x2",160)
-                      .attr("y1",-300)
-                      .attr("y2",-300)
-                       .attr('stroke-width', 5)
-                     .attr("stroke","black");
-
-
-            ///d3.select("#tooltip1").classed("hidden",false);
-
-            //entirebody.translate("")
 
            
 
-            // let lineselect=d3.select("#entirebody");
+            let linesvg1=d3.select("body")
+						  .append("svg")
+						  .attr("height",90+"px")
+						  .attr("class","lines")
+						  .attr("width",150+"px")
+						  .style("left",300+ "px")     
+						  .style("top",  -810 + "px")
+						  .style("position","relative");
 
-            // lineselect.append("line")
-            //           .attr("x1",444)
-            //           .attr("x2",444)
-            //           .attr("y1",10)
-            //           .attr("y2",500)
-            //           .style("stroke","black")
-                      
-            //           .style("stroke-width",10);
+            linesvg1.append("line")
+                      .attr("x1",150)
+                      .attr("x2",0)
+                      .attr("y1",0)
+                      .attr("y2",90)
+                      .style("stroke","black")
+                      .style("stroke-width",3);
+			
+			let linesvg2=d3.select("body")
+						  .append("svg")
+						  .attr("height",230+"px")
+						  .attr("class","lines")
+						  .attr("width",140+"px")
+						  .style("left",370+ "px")     
+						  .style("top",  -1030 + "px")
+						  .style("position","relative");
+
+            linesvg2.append("line")
+                      .attr("x1",0)
+                      .attr("x2",140)
+                      .attr("y1",15)
+                      .attr("y2",230)
+                      .style("stroke","black")
+                      .style("stroke-width",3);
 
 
         });
@@ -394,6 +404,7 @@ class Map{
             entirebody.classed("hidden",true);
             d3.selectAll("#tooltip1").classed("hidden",true);
             d3.selectAll("#tooltip3").classed("hidden",true);
+			d3.selectAll(".lines").classed("hidden",true);
 
         }
 

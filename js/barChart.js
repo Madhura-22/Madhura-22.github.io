@@ -81,7 +81,7 @@ class Bar{
 			.attr("transform","translate(21.5,300)")
 		    .call(d3.axisBottom(x).tickSize(0));
 			
-		let ticklabel = d3.selectAll(".tick").selectAll("text").attr("transform","rotate(90)","translate(8,8)").style("text-anchor", "start");
+		let ticklabel = d3.selectAll(".tick").selectAll("text").attr("transform","translate(-37,10) rotate(90)").style("text-anchor", "start");
 
 
 	
@@ -186,6 +186,14 @@ class Bar{
 		      .domain(categories)
 		      .range([0, width])
 		      .padding([0.2]);
+		
+		
+		d3.selectAll(".axis-line").remove();
+		barLayer.append("g").attr("class","axis-line")
+			.attr("transform","translate(21.5,300)")
+		    .call(d3.axisBottom(x).tickSize(0));
+			
+		let ticklabel = d3.selectAll(".tick").selectAll("text").attr("transform","translate(-37,10) rotate(90)").style("text-anchor", "start");
 	
 		
 
@@ -197,6 +205,19 @@ class Bar{
 		let yAxis = d3.axisLeft(y).ticks(5);
         barLayer.selectAll(".Yaxis")
           .call(yAxis);
+		  
+		barLayer.append("g").attr("class","axis-line")
+			.attr("transform","translate(20.5,0)")
+		    .call(d3.axisLeft(y));
+
+
+        barLayer.append("text") 
+        .attr("transform", "rotate(-90)")
+      .attr("y", -40)
+      .attr("x",-150)
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("No. of Suicides");                  
 		
 		var xSubgroup = d3.scaleBand()
 		    .domain(groups)
@@ -261,15 +282,28 @@ class Bar{
 		      .domain(categories)
 		      .range([0, width+20])
 		      .padding([0.2]);
-	
+		
+		d3.selectAll(".axis-line").remove();
+		barLayer.append("g").attr("class","axis-line")
+			.attr("transform","translate(21.5,300)")
+		    .call(d3.axisBottom(x).tickSize(0));
+			
+		let ticklabel = d3.selectAll(".tick").selectAll("text").attr("transform","translate(-17,10) rotate(90)").style("text-anchor", "start");
 		
 
 		 // Add Y axis
-		console.log(AgeData)
 		var groups=["0-14","15-29","30-44","45-59","60+"];
 		var y = d3.scaleLinear()
 		    .domain([0,d3.max(AgeData, d => parseInt(d.Total,10))])
 		    .range([300,0]);
+		
+		let yAxis = d3.axisLeft(y).ticks(5);
+        barLayer.selectAll(".Yaxis")
+          .call(yAxis);
+		  
+		barLayer.append("g").attr("class","axis-line")
+			.attr("transform","translate(20.5,0)")
+		    .call(d3.axisLeft(y));
 
 
 		var xSubgroup = d3.scaleBand()
