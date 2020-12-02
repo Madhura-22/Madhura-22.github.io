@@ -22,14 +22,14 @@ class Bar{
 		let trialData=this.data.Gender.filter(d=>d.Year==activeYear && d.State==State);
 
 
-		d3.selectAll(".switch").classed("hidden",true);
+		d3.selectAll("#toggle").classed("hidden",true);
 
 
 
 		
 
-		let barChart = d3.select("#bar-plot").append("svg").attr("height",510).attr("width",1500);
-		let barLayer=barChart.append("g").attr("id","barLayer").attr("transform", "translate(90,100)");
+		let barChart = d3.select("#bar-plot").append("svg").attr("height",510).attr("width",1200);
+		let barLayer=barChart.append("g").attr("id","barLayer").attr("transform", "translate(90,0)");
 
 		
 		
@@ -53,7 +53,7 @@ class Bar{
 
 		d3.selectAll(".axis-line").remove();
 
-		d3.select(".switch").classed("hidden",false);
+		d3.select("#toggle").classed("hidden",false);
 		
 		d3.selectAll(".legend").remove()
 

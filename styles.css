@@ -146,7 +146,8 @@ div.tooltip {
 
 /* The switch - the box around the slider */
 .switch {
-  margin-left: 150px;
+  /* margin-left: 150px; */
+  margin-left: 10px;
   position: relative;
   display: inline-block;
   width: 60px;
@@ -211,3 +212,17 @@ input:checked + .slider1:before {
     display: none;
 }
 
+#selected-state{
+  
+    text-align: center;
+    font-size: 50px;
+    font-family: ui-serif;
+    color: rgb(0, 63, 92);
+}
+/* 
+#selected-state{
+  margin-left: 350px;
+  /* text-align: center; */
+    /* font-size: 50px;
+    font-family: ui-serif
+} */
