@@ -296,7 +296,7 @@ class Bar{
 
 		var color = d3.scaleOrdinal()
 		    .domain(groups)
-		    .range(['#e41a1c','#377eb8',"#4daf4a","#BDB821","#21B3BD"])
+		    .range(['#ffa600','#bc5090',"#003f5c","#ff6361","#095427"])
 			
 		barLayer.selectAll("rect")
 					.data(AgeData)

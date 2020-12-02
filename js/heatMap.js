@@ -18,7 +18,7 @@ class CountryData {
 }
 class Map{
     constructor(data) {
-        this.projection = d3.geoCylindricalEqualArea().scale(800,800).translate([-400, 700]);
+        this.projection = d3.geoCylindricalEqualArea().scale(1000,1000).translate([-600, 800]);
         this.suicides = data.suicides;
         this.Total=data.Total
         this.data=data;
@@ -41,7 +41,7 @@ class Map{
 
 		
 		
-		let mapBrew =['rgb(128,0,0)','rgb(178,34,34)','rgb(255,0,0)','rgb(255,69,0)','rgb(255,99,71)','rgb(240,128,128)','rgb(255,160,122)'];
+		let mapBrew =['#2d0000', '#6e0014', '#b60016', '#ff0000', '#ff7d39', '#ffb980', '#ffe4c6'];
 		let mapRange = [30,25,20,15,10,5,0]; 
 
   //       var keys=[10000-12000,8000-10000,6000-8000,4000-6000,2000-4000,0-2000,0]
@@ -53,7 +53,7 @@ class Map{
 			.attr("class", "tooltip")               
 			.style("opacity", 0);
 		
-        //Drawing the map 
+        //Drawing the map   
 		let Gpath = d3.geoPath().projection(this.projection);
         this.barChart.drawBar(that.activeYear,"Karnataka");
         this.lineChart.drawLine(that.activeYear,"Karnataka");
@@ -160,7 +160,7 @@ class Map{
 		let that = this;
 		let mapLayer=d3.selectAll("#mapLayer");
 		
-		let mapBrew =['rgb(128,0,0)','rgb(178,34,34)','rgb(255,0,0)','rgb(255,69,0)','rgb(255,99,71)','rgb(240,128,128)','rgb(255,160,122)'];
+		let mapBrew =['#2d0000', '#6e0014', '#b60016', '#ff0000', '#ff7d39', '#ffb980', '#ffe4c6'];
 		let mapRange = [30,25,20,15,10,5,0]; 
 
 
@@ -224,10 +224,11 @@ class Map{
         let that = this;
 
         //Slider to change the activeYear of the data
-        let yearScale = d3.scaleLinear().domain([2001, 2012]).range([30, 730]);
+        let yearScale = d3.scaleLinear().domain([2001, 2012]).range([0, 500]);
 
         let yearSlider = d3.select('#activeYear-bar')
             .append('div').classed('slider-wrap', true)
+            .attr("width",600)
             .append('input').classed('slider', true)
             .attr('type', 'range')
             .attr('min', 2001)
@@ -236,7 +237,8 @@ class Map{
 
         let sliderLabel = d3.select('.slider-wrap')
             .append('div').classed('slider-label', true)
-            .append('svg');
+            .append('svg')
+            .attr("height",30);
 
         let sliderText = sliderLabel.append('text').text(this.activeYear);
 
