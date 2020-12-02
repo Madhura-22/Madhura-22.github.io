@@ -60,11 +60,7 @@ class Map{
         var svg = d3.select("#mapLayer")
 
         // Handmade legend
-        svg.append("text").attr("x", 220).attr("y", 125).text("% of suicides").style("font-size", "15px").attr("alignment-baseline","left")
-        svg.append("circle").attr("cx",200).attr("cy",140).attr("r", 6).style("fill", "rgb(128,0,0)")
-        svg.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "rgb(178,34,34)")
-        svg.append("text").attr("x", 220).attr("y", 145).text("30% +").style("font-size", "15px").attr("alignment-baseline","right")
-        svg.append("text").attr("x", 220).attr("y", 165).text("25-30%").style("font-size", "15px").attr("alignment-baseline","right")
+       
         svg.append("circle").attr("cx",200).attr("cy",180).attr("r", 6).style("fill", "rgb(255,0,0)")
         svg.append("circle").attr("cx",200).attr("cy",200).attr("r", 6).style("fill", "rgb(255,69,0)")
         svg.append("text").attr("x", 220).attr("y", 185).text("20-25%").style("font-size", "15px").attr("alignment-baseline","right")
@@ -279,29 +275,127 @@ class Map{
 
 
         let entirebody = d3.select("body")
-        .append("div")
+        .insert("div")
+
           .style("opacity", 0)
           .attr("id","entirebody")
-          .style("opacity",0)
-          // .attr(x,0)
-          // .attr
-          .style("background-color", "yellow")
-          .style("color", "black")
+          // .attr("x",30)
+        // .attr("y",40)
+          .style("background-color", "white")
+          .style("top",0)
+          .style("left",0)
           .attr("class","div5")
+          .style("position","absolute")
+          .style("height",900)
+          .style("width",1800)
+          .classed("hidden",true);
 
         
 
         let button= d3.select("#Story");
 
 
+
         button.on("click",function(d){
 
             console.log("in story");
 
+             entirebody.style("opacity",0.5)
+                      .html("story")
+                      .classed("hidden",false);
+
+            let tooltip1 = d3.select("body")
+            .append("div")
+             .style("opacity", 0)
+              
+              .style("background-color", "blue")
+              .style("border-radius", "5px")
+              .style("padding", "20px")
+             
+              .attr("style", "outline: solid black;")
+              
+              .style("left",520+ "px")     
+               .style("width",800+ "px")
+              .style("top",  -740 + "px")
+              .style("position","relative")
+              .style("color", "black")
+              .attr("id","tooltip1")
+              .html("This visualization allows you to explore all these relations, we hope the information will allow viewers to recognize the importance of mental health and help themselves and people around them. 800-273-8255 and  1800 233 3330  are suicide prevention hotlines in the US and India respectively. Help is available.");
+
+
+             let tooltip2 = d3.select("body")
+            .append("div")
+             // .attr("class", "tooltip")
+              .style("background-color", "green")
+              .style("border-radius", "5px")
+              .style("padding", "10px")
+              .attr("style", "outline: solid black;")
+              .style("left",620+ "px")     
+              .style("width",140+"px")
+              .style("top",  -500 + "px")
+              .style("position","relative")
+              .style("color", "black")
+              .attr("id","tooltip1")
+              .html("Among states with a population greater than 10,000 people Kerala had the least suicide rates(2%)");
+
+
+               let tooltip3 = d3.select("body")
+            .append("div")
+             //.style("opacity", 0)
+             // .attr("class", "tooltip")
+              .style("background-color", "red")
+              .style("border-radius", "5px")
+              .style("padding", "10px")
+              
+              .attr("style", "outline: solid black;")
+              .style("width",140+"px")
+              .style("left",140+ "px")     
+              .style("top",  -350 + "px")
+              .style("position","relative")
+              .style("color", "black")
+              .attr("id","tooltip3")
+              .html("Among states with a population greater than 10,000 people Kerala had the worst suicide rates(29%)");
+
+              let line3=d3.select("#tooltip3").append("line")
+                      .attr("x1",120)
+                      .style("opacity",0)
+                      .attr("x2",160)
+                      .attr("y1",-300)
+                      .attr("y2",-300)
+                       .attr('stroke-width', 5)
+                     .attr("stroke","black");
+
+
+            ///d3.select("#tooltip1").classed("hidden",false);
+
             //entirebody.translate("")
+
+           
+
+            // let lineselect=d3.select("#entirebody");
+
+            // lineselect.append("line")
+            //           .attr("x1",444)
+            //           .attr("x2",444)
+            //           .attr("y1",10)
+            //           .attr("y2",500)
+            //           .style("stroke","black")
+                      
+            //           .style("stroke-width",10);
 
 
         });
+
+
+        entirebody.on("click",function(d){
+
+            entirebody.classed("hidden",true);
+            d3.selectAll("#tooltip1").classed("hidden",true);
+            d3.selectAll("#tooltip3").classed("hidden",true);
+
+        }
+
+    )
 
 
 

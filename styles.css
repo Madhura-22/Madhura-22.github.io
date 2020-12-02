@@ -71,7 +71,9 @@ path:hover {
 
 }
 .div5{
-  grid-area: 1/1/2/2;
+  /*grid-area: 1/1/2/2;*/
+  height: 900px;
+  width:1800px;
 }
 
 /* Map hover tooltip styling */
@@ -84,6 +86,20 @@ div.tooltip {
     font: 12px sans-serif;      
     background: white; 
 	opacity: 0.3;
+    border: 0px;        
+    border-radius: 8px;         
+    pointer-events: none;           
+}
+
+div.tooltips {   
+    position: absolute;         
+    text-align: center;         
+    width: 1000px;                    
+    height: 80px;                   
+    padding: 2px;               
+    font: 12px sans-serif;      
+    background: white; 
+  opacity: 0.3;
     border: 0px;        
     border-radius: 8px;         
     pointer-events: none;           
@@ -210,4 +226,5 @@ input:checked + .slider1:before {
 .hidden{
     display: none;
 }
+
 

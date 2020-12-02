@@ -43,6 +43,11 @@ class Liney{
         let lineChart = d3.select("#line-plot").append("svg").attr("height",600).attr("width",700);
 
 		let lineLayer= lineChart.append("g").attr("id","lineLayer").attr("transform", "translate(0,20)");
+
+		// lineLayer.append("circle").attr("cx",1000).attr("cy",50).attr("r", 6).style("fill", "#e41a1c").attr("class","legend");
+  //       lineLayer.append("circle").attr("cx",1000).attr("cy",70).attr("r", 6).style("fill", "#377eb8").attr("class","legend");
+  //       lineLayer.append("text").attr("x", 1020).attr("y", 55).text("0-14").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
+  //       lineLayer.append("text").attr("x", 1020).attr("y", 75).text("15-29").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
        
 
 
@@ -126,6 +131,11 @@ class Liney{
 				      .transition()
 				      .duration(2000)
 				      .attr("stroke-dashoffset", 0);
+
+		// barLayer.append("circle").attr("cx",60).attr("cy",50).attr("r", 6).style("fill", "#e41a1c").attr("class","legend");
+  //       barLayer.append("circle").attr("cx",60).attr("cy",70).attr("r", 6).style("fill", "#377eb8").attr("class","legend");
+  //       barLayer.append("text").attr("x", 60).attr("y", 55).text("0-14").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
+  //       barLayer.append("text").attr("x", 60).attr("y", 75).text("15-29").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
 
 
 
