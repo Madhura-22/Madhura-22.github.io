@@ -10,6 +10,9 @@ class Liney{
 
     drawLine(activeYear,State) {
       // d3.select(".switch").classed("hidden",false);
+
+
+      //trial
 		let width=700;
         let height=300;
         d3.selectAll(".lableline").remove();
