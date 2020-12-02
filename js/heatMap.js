@@ -62,29 +62,32 @@ class Map{
         var svg = d3.select("#mapLayer")
 
         // Handmade legend
+        svg.append("text").text("% of suicides").attr("x", 50).attr("y", 110).style("font-size", "15px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
+        // svg.append("text").text("committed by population").attr("x", 30).attr("y", 115).style("font-size", "15px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
+ 
         // svg.append("circle").attr("cx",100).attr("cy",140).attr("r", 6).style("fill", "#2d0000")
         svg.append("rect").attr("x",90).attr("y",130).attr("width", 20).attr("height", 20).style("fill", "#2d0000");
-        svg.append("text").attr("x", 120).attr("y", 145).text("30-35%").style("font-size", "15px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 112).attr("y", 134).text("35").style("font-size", "10px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
         // svg.append("circle").attr("cx",100).attr("cy",160).attr("r", 6).style("fill", "#6e0014")
         svg.append("rect").attr("x",90).attr("y",150).attr("width", 20).attr("height", 20).style("fill", "#6e0014");
-        svg.append("text").attr("x", 120).attr("y", 165).text("25-30%").style("font-size", "15px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 112).attr("y", 154).text("30").style("font-size", "10px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
         // svg.append("circle").attr("cx",100).attr("cy",180).attr("r", 6).style("fill", "#b60016")
         svg.append("rect").attr("x",90).attr("y",170).attr("width", 20).attr("height", 20).style("fill", "#b60016");
         // svg.append("circle").attr("cx",100).attr("cy",200).attr("r", 6).style("fill", "#ff0000")
         svg.append("rect").attr("x",90).attr("y",190).attr("width", 20).attr("height", 20).style("fill", "#ff0000");
-        svg.append("text").attr("x", 120).attr("y", 185).text("20-25%").style("font-size", "15px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
-        svg.append("text").attr("x", 120).attr("y", 205).text("15-20%").style("font-size", "15px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 112).attr("y", 174).text("25").style("font-size", "10px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 112).attr("y", 194).text("20").style("font-size", "10px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
         // svg.append("circle").attr("cx",100).attr("cy",220).attr("r", 6).style("fill", "#ff7d39")
         svg.append("rect").attr("x",90).attr("y",210).attr("width", 20).attr("height", 20).style("fill", "#ff7d39");
         // svg.append("circle").attr("cx",100).attr("cy",240).attr("r", 6).style("fill", "#ffb980")
         svg.append("rect").attr("x",90).attr("y",230).attr("width", 20).attr("height", 20).style("fill", "#ffb980");
-        svg.append("text").attr("x", 120).attr("y", 225).text("10-15%").style("font-size", "15px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
-        svg.append("text").attr("x", 120).attr("y", 245).text("5-10%").style("font-size", "15px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 112).attr("y", 214).text("15").style("font-size", "10px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 112).attr("y", 234).text("10").style("font-size", "10px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
         
         // svg.append("circle").attr("cx",100).attr("cy",260).attr("r", 6).style("fill", "#ffe4c6")
         svg.append("rect").attr("x",90).attr("y",250).attr("width", 20).attr("height", 20).style("fill", "#ffe4c6");
-        svg.append("text").attr("x", 120).attr("y", 265).text("0-5%").style("font-size", "15px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
-
+        svg.append("text").attr("x", 112).attr("y", 254).text("5").style("font-size", "10px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 112).attr("y", 274).text("0").style("font-size", "10px").attr("font-family", "BioRhyme, serif").attr("alignment-baseline","right")
 
         mapLayer.selectAll("path")
                     .data(world.features)
