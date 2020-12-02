@@ -9,7 +9,7 @@ path:hover {
 }
 
 #map-chart {
-    height: 650px;
+    height: 800px;
 }
 
 #map-chart svg {
@@ -284,4 +284,30 @@ input:checked + .slider1:before {
   border-bottom-color: #DCDCDC;
 }
 
+.chart-text{
+  font-size: 20px;
+  color: rgb(0, 63, 92)
+}
+
+#compare-text{
+    margin-left: 5em;
+}
+
+#Information{
+  background-color:#ffe4c657;
+  height: 800px;
+  padding-top: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+#project-name{
+  font-size: 100px;
+  color: #6e0014
+}
+
+.project-description-div{
+  margin-left: 25px;
+  margin-top: 30px;
+}
 

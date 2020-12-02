@@ -18,7 +18,7 @@ class CountryData {
 }
 class Map{
     constructor(data) {
-        this.projection = d3.geoCylindricalEqualArea().scale(1000,1000).translate([-600, 800]);
+        this.projection = d3.geoCylindricalEqualArea().scale(1200,1200).translate([-900, 900]);
         this.suicides = data.suicides;
         this.Total=data.Total
         this.data=data;
@@ -33,7 +33,9 @@ class Map{
 
     drawMap(world) {
        
-		
+        d3.selectAll("#bar-plot").classed("hidden",true);
+        d3.selectAll("#selection").classed("hidden",true);
+        d3.selectAll("#line-plot").classed("hidden",true);
 		let mapchart = d3.select("#map-chart").append("svg");
 		let mapLayer=mapchart.append("g").attr("id","mapLayer");
 		let that=this;
@@ -60,17 +62,20 @@ class Map{
         var svg = d3.select("#mapLayer")
 
         // Handmade legend
-       
-        svg.append("circle").attr("cx",200).attr("cy",180).attr("r", 6).style("fill", "rgb(255,0,0)")
-        svg.append("circle").attr("cx",200).attr("cy",200).attr("r", 6).style("fill", "rgb(255,69,0)")
-        svg.append("text").attr("x", 220).attr("y", 185).text("20-25%").style("font-size", "15px").attr("alignment-baseline","right")
-        svg.append("text").attr("x", 220).attr("y", 205).text("15-20%").style("font-size", "15px").attr("alignment-baseline","right")
-        svg.append("circle").attr("cx",200).attr("cy",220).attr("r", 6).style("fill", "rgb(255,99,71)")
-        svg.append("circle").attr("cx",200).attr("cy",240).attr("r", 6).style("fill", "rgb(240,128,128)")
-        svg.append("text").attr("x", 220).attr("y", 225).text("10-15%").style("font-size", "15px").attr("alignment-baseline","right")
-        svg.append("text").attr("x", 220).attr("y", 245).text("5-10%").style("font-size", "15px").attr("alignment-baseline","right")
-        svg.append("circle").attr("cx",200).attr("cy",260).attr("r", 6).style("fill", "rgb(255,160,122)")
-        svg.append("text").attr("x", 220).attr("y", 265).text("0-5%").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("circle").attr("cx",100).attr("cy",140).attr("r", 6).style("fill", "#2d0000")
+        svg.append("text").attr("x", 120).attr("y", 145).text("30-35%").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("circle").attr("cx",100).attr("cy",160).attr("r", 6).style("fill", "#6e0014")
+        svg.append("text").attr("x", 120).attr("y", 165).text("25-30%").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("circle").attr("cx",100).attr("cy",180).attr("r", 6).style("fill", "#b60016")
+        svg.append("circle").attr("cx",100).attr("cy",200).attr("r", 6).style("fill", "#ff0000")
+        svg.append("text").attr("x", 120).attr("y", 185).text("20-25%").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 120).attr("y", 205).text("15-20%").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("circle").attr("cx",100).attr("cy",220).attr("r", 6).style("fill", "#ff7d39")
+        svg.append("circle").attr("cx",100).attr("cy",240).attr("r", 6).style("fill", "#ffb980")
+        svg.append("text").attr("x", 120).attr("y", 225).text("10-15%").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("text").attr("x", 120).attr("y", 245).text("5-10%").style("font-size", "15px").attr("alignment-baseline","right")
+        svg.append("circle").attr("cx",100).attr("cy",260).attr("r", 6).style("fill", "#ffe4c6")
+        svg.append("text").attr("x", 120).attr("y", 265).text("0-5%").style("font-size", "15px").attr("alignment-baseline","right")
 
 
         mapLayer.selectAll("path")
@@ -133,9 +138,12 @@ class Map{
 						let classname = d.properties.NAME_1
 						
 						let selstate = d3.select("."+classname.split(" ").join("") );
-						selstate.classed("highlightstate", true);
+                        selstate.classed("highlightstate", true);
+                        d3.selectAll("#Information").classed("hidden",true);
+                        d3.selectAll("#bar-plot").classed("hidden",false);
+                        d3.selectAll("#selection").classed("hidden",false);
+                        d3.selectAll("#line-plot").classed("hidden",false);
                         d3.select('#selected-state').text(that.selectedState);
-                        // d3.select('#bar-header').append("text").attr("class","bar-headings").text("Compare By");
 						d3.select('#boop').property('checked', false);
 						that.barChart.updateBar(that.activeYear,d.properties.NAME_1)
 						d3.select('.select').property('value',"Select");
