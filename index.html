@@ -24,11 +24,11 @@
 </head>
 
 <body>
-    <div class="header">
+    <!-- <div class="header">
         <h1>Mental Health In India</h1>
     </div>
 
-     
+      -->
 
     <button id="Story">Story Tell!</button>
     <div class="wrapper">
@@ -41,28 +41,45 @@
         </div>
 
             </div>
-    
+        <div class="div2" id="Information">
+            <text id ="project-name">
+                Mental Health India
+            </text>
+            <br><br>
+            <div class="project-description-div">
+                <text class ="project-description">
+                    This visualization allows you to explore all these relations, we hope the information will allow viewers to recognize the importance of mental health and help themselves and people around them. 
+                </text>
+                <br>
+                <text>800-273-8255 and 1800 233 3330 are suicide prevention hotlines in the US and India respectively. </text>
+                <br>
+                <text>
+                    Help is available.
+                </text>
+            </div>
+            
+        </div>
         <div id="bar-plot" class="div2">
             <div id="selected-state"></div>
             <div id="toggle">
-                <text style="margin-left: 27.5em; font-size: 20px;">Compare By</text>
+                <text style="margin-left: 27.5em;" class="chart-text">Compare By</text>
                 <br>
                 <br>
-                <text style="margin-left: 24.5em; font-size: 20px;">Gender</text>
+                <text style="margin-left: 24.5em;" class="chart-text">Gender</text>
                 <label class="switch">
                     
                 <input id="boop" type="checkbox" class="hidden">
 
                 <span class="slider1 round"> </span>
                 </label>
-                <text style="margin-left: 0.8em; font-size: 20px;">Age Group</text>
+                <text style="margin-left: 0.8em;" class="chart-text">Age Group</text>
             </div>
 
             
         </div>
 
         <div id="selection" class="div3"> 
-            <text style="margin-left: 5em; font-size: 20px;">Select the state to compare</text>
+            <text id="compare-text" class="chart-text">Select the state to compare</text>
         </div>
 
          <div id="line-plot" class="div4">
