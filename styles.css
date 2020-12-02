@@ -302,12 +302,19 @@ input:checked + .slider1:before {
 }
 
 #project-name{
-  font-size: 100px;
+  font-family: 'Yatra One', cursive;
+  font-size: 87px;
   color: #6e0014
 }
 
 .project-description-div{
+  color: #2d0000;
+  width: 775px;
+  margin-left: 25px;
   margin-left: 25px;
   margin-top: 30px;
+  font-family: 'BioRhyme', serif;
+  font-size: 20px;
+  text-align: justify;
 }
 
