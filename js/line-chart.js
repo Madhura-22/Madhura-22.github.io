@@ -13,7 +13,7 @@ class Liney{
 
 
       //trial
-		let width=700;
+		let width=900;
         let height=300;
         d3.selectAll(".lableline").remove();
 
@@ -40,7 +40,7 @@ class Liney{
 
         d3.selectAll("#selection").classed("hidden",true);
 
-        let lineChart = d3.select("#line-plot").append("svg").attr("height",600).attr("width",700).attr("transform","translate(20,0)");
+        let lineChart = d3.select("#line-plot").append("svg").attr("height",600).attr("width",1000).attr("transform","translate(20,0)");
 
 		let lineLayer= lineChart.append("g").attr("id","lineLayer").attr("transform", "translate(0,20)");
 
@@ -60,8 +60,12 @@ class Liney{
     d3.selectAll(".axis-line-chart").remove();
     d3.selectAll(".lableline").remove();
 
+    d3.selectAll(".legendline").remove()
+
+
     this.activeState = State;
-        let width = 700;
+
+        let width = 900;
         let height = 300;
         let trialData = this.data.Total.filter(d => d.State==State);
 		
@@ -132,6 +136,12 @@ class Liney{
 				      .duration(2000)
 				      .attr("stroke-dashoffset", 0);
 
+
+		//lineLayer.append("circle").attr("cx",900).attr("cy",50).attr("r", 6).style("fill", "#e41a1c").attr("class","legend");
+        lineLayer.append("circle").attr("cx",900).attr("cy",70).attr("r", 6).style("fill", "#377eb8").attr("class","legendline");
+        //lineLayer.append("text").attr("x", 920).attr("y", 55).text("0-14").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
+        lineLayer.append("text").attr("x", 920).attr("y", 75).text(State).style("font-size", "15px").attr("alignment-baseline","right").attr("class","legendline");
+
 		// barLayer.append("circle").attr("cx",60).attr("cy",50).attr("r", 6).style("fill", "#e41a1c").attr("class","legend");
   //       barLayer.append("circle").attr("cx",60).attr("cy",70).attr("r", 6).style("fill", "#377eb8").attr("class","legend");
   //       barLayer.append("text").attr("x", 60).attr("y", 55).text("0-14").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
@@ -144,6 +154,9 @@ class Liney{
     } 
 
     updateLineTwo(secondState) {
+
+     d3.selectAll(".legendline").remove();
+
 
       let width = 700;
       let height = 300;
@@ -179,6 +192,11 @@ class Liney{
       .domain([0,50])
       .range([height, 0]);
         
+      lineLayer.append("circle").attr("cx",900).attr("cy",50).attr("r", 6).style("fill", "#e41a1c").attr("class","legendline");
+        lineLayer.append("circle").attr("cx",900).attr("cy",70).attr("r", 6).style("fill", "#377eb8").attr("class","legendline");
+        lineLayer.append("text").attr("x", 920).attr("y", 55).text(secondState).style("font-size", "15px").attr("alignment-baseline","right").attr("class","legendline");
+        lineLayer.append("text").attr("x", 920).attr("y", 75).text(that.activeState).style("font-size", "15px").attr("alignment-baseline","right").attr("class","legendline");
+
 
 
 

@@ -1,11 +1,11 @@
 path:hover {
-	fill-opacity: .7;
+  fill-opacity: .7;
 }
 
 
 .highlightstate
 {
-	fill: rgb(0, 63, 92) !important;
+  fill: rgb(0, 63, 92) !important;
 }
 
 #map-chart {
@@ -26,7 +26,7 @@ path:hover {
 
 .wrapper {
    width: 1800px;
-	height: 800px;  
+  height: 800px;  
    /* margin: auto;*/
    display:grid;
    grid-template-columns: auto auto auto;
@@ -85,7 +85,7 @@ div.tooltip {
     padding: 2px;               
     font: 12px sans-serif;      
     background: white; 
-	opacity: 0.3;
+  opacity: 0.3;
     border: 0px;        
     border-radius: 8px;         
     pointer-events: none;           
@@ -317,4 +317,3 @@ input:checked + .slider1:before {
   font-size: 20px;
   text-align: justify;
 }
-
