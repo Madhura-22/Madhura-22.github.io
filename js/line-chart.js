@@ -12,6 +12,7 @@ class Liney{
       // d3.select(".switch").classed("hidden",false);
 		let width=700;
         let height=300;
+        d3.selectAll(".lableline").remove();
 
         let stateData = this.data.Total.filter(d => d.Year=="2012");
         let totalStates = [];
@@ -39,17 +40,18 @@ class Liney{
         let lineChart = d3.select("#line-plot").append("svg").attr("height",600).attr("width",700);
 
 		let lineLayer= lineChart.append("g").attr("id","lineLayer").attr("transform", "translate(0,20)");
-        lineLayer.append("g")
-          .attr("transform", "translate(0,300)")
-          .attr("class","Xaxis")
-        lineLayer.append("g")
-        .attr("transform", "translate(80,0)")
-          .attr("class","Yaxis")	
+       
+
+
+             
   }
 
 	
 	updateLine(activeYear,State) {
     d3.select(".select").classed("hidden",false);
+    d3.selectAll(".axis-line-chart").remove();
+    d3.selectAll(".lableline").remove();
+
     this.activeState = State;
         let width = 700;
         let height = 300;
@@ -69,34 +71,61 @@ class Liney{
        
         let x = d3.scaleBand()
         .domain(totalyears).range([80,width]).padding([0.8]);
-        let xAxis = d3.axisBottom(x);
-        lineLayer.selectAll(".Xaxis")
-          // .duration(2000)
-          .call(xAxis);
+
+
+        
+
+    	lineLayer.append("g").attr("class","axis-line-chart")
+		.attr("transform","translate(0,300)")
+	    .call(d3.axisBottom(x));
 
         
         let y = d3.scaleLinear()
         .domain([0, d3.max(trialData, d => parseInt(d.Total,10))])
         .range([height, 0]);
-          let yAxis = d3.axisLeft(y).ticks(5);
-          lineLayer.selectAll(".Yaxis")
-            .call(yAxis);
+          // let yAxis = d3.axisLeft(y).ticks(5);
+
+       lineLayer.append("text") 
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0)
+      .attr("x",-130)
+      .attr("dy", "1em")
+      .attr("class","lableline")
+      .style("text-anchor", "middle")
+      .text("No. of Suicides");  
+         
+
+
+    	lineLayer.append("g").attr("class","axis-line-chart")
+		.attr("transform","translate(80,0)")
+	    .call(d3.axisLeft(y));
 
         let lineGrp = lineLayer.selectAll(".lineTest").data([trialData]);
         
           // Updata the line
-          lineGrp.enter()
-            .append("path")
-            .attr("class","lineTest")
-            .merge(lineGrp)
-            .transition()
-            .duration(2000)
-            .attr("d", d3.line()
-              .x(function(d) { return x(d.Year); })
-              .y(function(d) { return y(parseInt(d.Total,10)); }))
-              .attr("fill", "none")
-              .attr("stroke", "steelblue")
-              .attr("stroke-width", 2.5);
+        let line1=lineGrp.enter()
+			            .append("path")
+			            .attr("class","lineTest")
+			            .merge(lineGrp)
+			            // .transition()
+			            // .duration(2000)
+			            .attr("d", d3.line()
+			              .x(function(d) { return x(d.Year); })
+			              .y(function(d) { return y(parseInt(d.Total,10)); }))
+			              .attr("fill", "none")
+			              .attr("stroke", "steelblue")
+			              .attr("stroke-width", 2.5);
+
+		let totalLength = line1.node().getTotalLength();
+				    line1      
+				      .attr("stroke-dasharray", totalLength + " " + totalLength)
+				      .attr("stroke-dashoffset", totalLength)
+				      .transition()
+				      .duration(2000)
+				      .attr("stroke-dashoffset", 0);
+
+
+
 
 		
     } 
@@ -108,6 +137,10 @@ class Liney{
       let that = this;
       let trialData1 = this.data.Total.filter(d => d.State==that.activeState);  
       let trialData2 = this.data.Total.filter(d => d.State==secondState);
+
+
+      d3.selectAll(".axis-line-chart").remove();
+      d3.selectAll(".lableline").remove();
   
       let lineLayer=d3.select("#lineLayer");
       let totalyears = [];
@@ -117,34 +150,42 @@ class Liney{
           totalyears.push(trialData1[i].Year.toString())
         }
       
-      // lineLayer.selectAll(".XaxisSingle").remove();
-      // lineLayer.selectAll(".YaxisSingle").remove();
+      
       lineLayer.selectAll("path").remove();
 
       let x = d3.scaleBand()
       .domain(totalyears).range([80,width]).padding([0.8]);
-      let xAxis = d3.axisBottom(x);
-      lineLayer.selectAll(".Xaxis")
-        // .duration(2000
-        .call(xAxis);
+      
+
+      lineLayer.append("g").attr("class","axis-line-chart")
+		.attr("transform","translate(0,300)")
+	    .call(d3.axisBottom(x));
 
       
       let y = d3.scaleLinear()
-      .domain([0,40])
+      .domain([0,50])
       .range([height, 0]);
-        let yAxis = d3.axisLeft(y).ticks(5);
-        lineLayer.selectAll(".Yaxis")
-          .call(yAxis);
+        
+
+
+
+
+
+
+        lineLayer.append("g").attr("class","axis-line-chart")
+		.attr("transform","translate(80,0)")
+	    .call(d3.axisLeft(y));
+
 
       let lineGrp1 = lineLayer.selectAll(".lineTest1").data([trialData1]);
       let lineGrp2 = lineLayer.selectAll(".lineTest2").data([trialData2]);
         // Updata the line
-        lineGrp1.enter()
+      let line1=  lineGrp1.enter()
           .append("path")
           .attr("class","lineTest1")
           .merge(lineGrp1)
-          .transition()
-          .duration(2000)
+          // .transition()
+          // .duration(2000)
           .attr("d", d3.line()
             .x(function(d) { return x(d.Year); })
             .y(function(d) { return y(parseInt(d.Percentage,10)); }))
@@ -152,18 +193,47 @@ class Liney{
             .attr("stroke", "steelblue")
             .attr("stroke-width", 2.5);
 
-      lineGrp2.enter()
+        let totalLength = line1.node().getTotalLength();
+				    line1      
+				      .attr("stroke-dasharray", totalLength + " " + totalLength)
+				      .attr("stroke-dashoffset", totalLength)
+				      .transition()
+				      .duration(2000)
+				      .attr("stroke-dashoffset", 0);
+
+
+
+     let line2= lineGrp2.enter()
         .append("path")
         .attr("class","lineTest2")
         .merge(lineGrp2)
-        .transition()
-        .duration(2000)
+        // .transition()
+        // .duration(2000)
         .attr("d", d3.line()
           .x(function(d) { return x(d.Year); })
           .y(function(d) { return y(parseInt(d.Percentage,10)); }))
           .attr("fill", "none")
           .attr("stroke", "red")
           .attr("stroke-width", 2.5);
+
+
+           lineLayer.append("text") 
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0)
+      .attr("x",-130)
+      .attr("dy", "1em")
+      .attr("class","lableline")
+      .style("text-anchor", "middle")
+      .text("Percentage of Suicides");  
+
+       let totalLength1 = line2.node().getTotalLength();
+				    line2      
+				      .attr("stroke-dasharray", totalLength1 + " " + totalLength1)
+				      .attr("stroke-dashoffset", totalLength1)
+				      .transition()
+				      .duration(2000)
+				      .attr("stroke-dashoffset", 0);
+
         
 
   
