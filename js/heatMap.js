@@ -283,20 +283,30 @@ class Map{
           .style("opacity", 0)
           .attr("id","entirebody")
           .style("opacity",0)
-          .style("background-color", "white")
+          .style("background-color", "yellow")
           .style("color", "black")
-         // .style("position","absolute")
           .attr("class","div5")
 
-        let x=d3.select('#Story').on("click",function(d){
-            console.log("yippeeeee");
-        entirebody
-          .style("opacity", 0.9)
-          .html("story");
-          //.style("top",200+"px");
-
-        })
         
+
+        let button= d3.select("#Story");
+
+
+        button.on("click",function(d){
+
+            console.log("in story");
+
+            //entirebody.translate("")
+
+
+        });
+
+
+
+
+
+
+
        
 
     }
