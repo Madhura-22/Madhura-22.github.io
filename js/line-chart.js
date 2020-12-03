@@ -44,13 +44,6 @@ class Liney{
 
 		let lineLayer= lineChart.append("g").attr("id","lineLayer").attr("transform", "translate(0,20)");
 
-		// lineLayer.append("circle").attr("cx",1000).attr("cy",50).attr("r", 6).style("fill", "#e41a1c").attr("class","legend");
-  //       lineLayer.append("circle").attr("cx",1000).attr("cy",70).attr("r", 6).style("fill", "#377eb8").attr("class","legend");
-  //       lineLayer.append("text").attr("x", 1020).attr("y", 55).text("0-14").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
-  //       lineLayer.append("text").attr("x", 1020).attr("y", 75).text("15-29").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
-       
-
-
              
   }
 
@@ -138,9 +131,9 @@ class Liney{
 
 
 		//lineLayer.append("circle").attr("cx",900).attr("cy",50).attr("r", 6).style("fill", "#e41a1c").attr("class","legend");
-        lineLayer.append("circle").attr("cx",900).attr("cy",70).attr("r", 6).style("fill", "#003f5c").attr("class","legendline");
+        lineLayer.append("circle").attr("cx",850).attr("cy",70).attr("r", 6).style("fill", "#003f5c").attr("class","legendline");
         //lineLayer.append("text").attr("x", 920).attr("y", 55).text("0-14").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
-        lineLayer.append("text").attr("x", 920).attr("y", 75).text(State).style("font-size", "15px").attr("alignment-baseline","right").attr("class","legendline");
+        lineLayer.append("text").attr("x", 860).attr("y", 75).text(State).style("font-size", "15px").attr("alignment-baseline","right").attr("class","legendline");
 
 		// barLayer.append("circle").attr("cx",60).attr("cy",50).attr("r", 6).style("fill", "#e41a1c").attr("class","legend");
   //       barLayer.append("circle").attr("cx",60).attr("cy",70).attr("r", 6).style("fill", "#377eb8").attr("class","legend");
@@ -192,10 +185,10 @@ class Liney{
       .domain([0,50])
       .range([height, 0]);
         
-      lineLayer.append("circle").attr("cx",900).attr("cy",50).attr("r", 6).style("fill", "#ff9900").attr("class","legendline");
-        lineLayer.append("circle").attr("cx",900).attr("cy",70).attr("r", 6).style("fill", "#003f5c").attr("class","legendline");
-        lineLayer.append("text").attr("x", 920).attr("y", 55).text(secondState).style("font-size", "15px").attr("alignment-baseline","right").attr("class","legendline");
-        lineLayer.append("text").attr("x", 920).attr("y", 75).text(that.activeState).style("font-size", "15px").attr("alignment-baseline","right").attr("class","legendline");
+      lineLayer.append("circle").attr("cx",850).attr("cy",50).attr("r", 6).style("fill", "#ff9900").attr("class","legendline");
+        lineLayer.append("circle").attr("cx",850).attr("cy",70).attr("r", 6).style("fill", "#003f5c").attr("class","legendline");
+        lineLayer.append("text").attr("x", 860).attr("y", 55).text(secondState).style("font-size", "15px").attr("alignment-baseline","right").attr("class","legendline");
+        lineLayer.append("text").attr("x", 860).attr("y", 75).text(that.activeState).style("font-size", "15px").attr("alignment-baseline","right").attr("class","legendline");
 
 
 
