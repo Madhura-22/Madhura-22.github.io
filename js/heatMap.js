@@ -98,10 +98,16 @@ class Map{
                     .style("fill",function(d){ 
 
                         for(let i=0;i<yearTotalData.length;i++){
+
+                           console.log(d.properties.NAME_1,yearTotalData[i].State);
+
+
+
 						//console.log(yearTotalData);
 
                          if(d.properties.NAME_1==yearTotalData[i].State){
 							 
+
                             
                             var colors=mapBrew,
                                  range = mapRange;
@@ -187,10 +193,19 @@ class Map{
             .attr("class", "tooltip")               
             .style("opacity", 0);
 
+
         mapLayer.selectAll("path")
 				.style("fill",function(d){ 
+
+
 					for(let i=0;i<yearTotalData.length;i++){
+
+            console.log(d.properties.NAME_1,yearTotalData[i].State);
+
 					 if(d.properties.NAME_1==yearTotalData[i].State){
+
+
+
 						
 						var colors=mapBrew,
 							 range = mapRange;
