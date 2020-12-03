@@ -156,7 +156,7 @@ class Map {
                 d3.selectAll("#bar-plot").classed("hidden", false);
                 d3.selectAll("#selection").classed("hidden", false);
                 d3.selectAll("#line-plot").classed("hidden", false);
-                d3.select('#selected-state').text(that.selectedState+" in "+that.activeYear);
+                d3.select('#selected-state').text(that.selectedState);
                 d3.select('#boop').property('checked', false);
                 that.barChart.updateBar(that.activeYear, d.properties.NAME_1)
                 d3.select('.select').property('value', "Select");
@@ -280,7 +280,7 @@ class Map {
             }
         }
 
-        let text = "<h3>" + data.properties.NAME_1 + "</h3>" + "<p> total:" + yearTotalData[ind].Total + "</p>";
+        let text = "<h3>" + data.properties.NAME_1 + "</h3>" + "<p> Total: " + yearTotalData[ind].Total + "</p>";
         return text;
     }
 

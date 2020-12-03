@@ -80,7 +80,7 @@ path:hover {
 div.tooltip {   
     position: absolute;         
     text-align: center;         
-    width: 120px;                    
+    width: 160px;                    
     height: 80px;                   
     padding: 2px;               
     font: 12px sans-serif;      
@@ -88,7 +88,8 @@ div.tooltip {
   opacity: 0.3;
     border: 0px;        
     border-radius: 8px;         
-    pointer-events: none;           
+    pointer-events: none;  
+     font-family: 'BioRhyme', serif;         
 }
 
 div.tooltip1 {   
@@ -291,7 +292,8 @@ input:checked + .slider1:before {
 
 .chart-text{
   font-size: 20px;
-  color: rgb(0, 63, 92)
+  color: rgb(0, 63, 92);
+  font-family: 'BioRhyme', serif;
 }
 
 #compare-text{

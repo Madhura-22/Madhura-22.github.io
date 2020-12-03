@@ -57,11 +57,14 @@ class Bar{
 		
 		d3.selectAll(".legend").remove()
 
-		let categories=[]
-		for(let i=0;i<trialData.length;i++){
-			if(!categories.includes(trialData[i].Categories))
-			categories.push(trialData[i].Categories)
-		}
+		//let categories=[];
+
+		let categories=["Sickness","Financial issues","Relation Troubles","Others Causes","Pressures of Society","Drug Abuse/Addiction","Physical Abuse (Rape/Incest Etc.)","Causes Not known"]
+
+		// for(let i=0;i<trialData.length;i++){
+		// 	if(!categories.includes(trialData[i].Categories))
+		// 	categories.push(trialData[i].Categories)
+		// }
 
 
 		var groups = ["Male", "Female"]
@@ -77,11 +80,12 @@ class Bar{
 		      .range([0, width])
 		      .padding([0.2]);
 
-		barLayer.append("g").attr("class","axis-line")
+		let categoryAxis=barLayer.append("g").attr("class","axis-line")
 			.attr("transform","translate(21.5,300)")
+			.attr("id","catX")
 		    .call(d3.axisBottom(x).tickSize(0));
 			
-		let ticklabel = d3.selectAll(".tick").selectAll("text").attr("transform","translate(-37,10) rotate(90)").style("text-anchor", "start");
+		let ticklabel = d3.selectAll("#catX").selectAll(".tick").selectAll("text").attr("transform","translate(-37,10) rotate(90)").style("text-anchor", "start");
 
 
 	
@@ -108,8 +112,11 @@ class Bar{
 		
 		var xSubgroup = d3.scaleBand()
 		    .domain(groups)
+		    //.range(0,800)
 		    .range([0, x.bandwidth()-43])
 		    .padding([0.05])
+
+
 
 		  
 		  var color = d3.scaleOrdinal()
@@ -170,13 +177,14 @@ class Bar{
         barLayer.append("text").attr("x", 920).attr("y", 75).text("Female").style("font-size", "15px").attr("alignment-baseline","right").attr("class","legend");
 
 
-		
+		let categories=["Sickness","Financial issues","Relation Troubles","Others Causes","Pressures of Society","Drug Abuse/Addiction","Physical Abuse (Rape/Incest Etc.)","Causes Not known"]
 
-		let categories=[]
-		for(let i=0;i<trialData.length;i++){
-			if(!categories.includes(trialData[i].Categories))
-			categories.push(trialData[i].Categories)
-		}
+
+		// let categories=[]
+		// for(let i=0;i<trialData.length;i++){
+		// 	if(!categories.includes(trialData[i].Categories))
+		// 	categories.push(trialData[i].Categories)
+		// }
 
 
 		var groups = ["Male", "Female"]
@@ -189,11 +197,12 @@ class Bar{
 		
 		
 		d3.selectAll(".axis-line").remove();
-		barLayer.append("g").attr("class","axis-line")
+		let categoryAxis=barLayer.append("g").attr("class","axis-line")
 			.attr("transform","translate(21.5,300)")
+			.attr("id","catX")
 		    .call(d3.axisBottom(x).tickSize(0));
 			
-		let ticklabel = d3.selectAll(".tick").selectAll("text").attr("transform","translate(-37,10) rotate(90)").style("text-anchor", "start");
+		let ticklabel = d3.selectAll("#catX").selectAll(".tick").selectAll("text").attr("transform","translate(-37,10) rotate(90)").style("text-anchor", "start");
 	
 		
 
@@ -258,11 +267,14 @@ class Bar{
 		
 		let barLayer=d3.select("#barLayer");
 
-		let categories=[]
-		for(let i=0;i<AgeData.length;i++){
-			if(!categories.includes(AgeData[i].Categories))
-			categories.push(AgeData[i].Categories)
-		}
+		let categories=["Sickness","Financial issues","Relation Troubles","Others Causes","Pressures of Society","Drug Abuse/Addiction","Physical Abuse (Rape/Incest Etc.)","Causes Not known"]
+
+
+		// let categories=[]
+		// for(let i=0;i<AgeData.length;i++){
+		// 	if(!categories.includes(AgeData[i].Categories))
+		// 	categories.push(AgeData[i].Categories)
+		// }
 
 		d3.selectAll(".legend").remove();
 		// ','',"","#",""
@@ -284,11 +296,12 @@ class Bar{
 		      .padding([0.2]);
 		
 		d3.selectAll(".axis-line").remove();
-		barLayer.append("g").attr("class","axis-line")
+		let categoryAxis=barLayer.append("g").attr("class","axis-line")
 			.attr("transform","translate(21.5,300)")
+			.attr("id","catX")
 		    .call(d3.axisBottom(x).tickSize(0));
 			
-		let ticklabel = d3.selectAll(".tick").selectAll("text").attr("transform","translate(-17,10) rotate(90)").style("text-anchor", "start");
+		let ticklabel = d3.selectAll("#catX").selectAll(".tick").selectAll("text").attr("transform","translate(-17,10) rotate(90)").style("text-anchor", "start");
 		
 
 		 // Add Y axis
