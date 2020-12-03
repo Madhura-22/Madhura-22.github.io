@@ -242,12 +242,13 @@ class Map {
             .attr('type', 'range')
             .attr('min', 2001)
             .attr('max', 2012)
-            .attr('value', this.activeYear);
+            .attr('value', this.activeYear)
+            .style("margin-top",30);
 
         let sliderLabel = d3.select('.slider-wrap')
             .append('div').classed('slider-label', true)
             .append('svg')
-            .attr("height", 30);
+            .attr("height",50);
 
         let sliderText = sliderLabel.append('text').text(this.activeYear);
 
@@ -321,7 +322,7 @@ class Map {
                 .append("div")
                 .attr("class", "story-tooltip")
                 .style("left", 620 + "px")
-                .style("top", -380 + "px")
+                .style("top", -330 + "px")
                 .style("position", "relative")
                 .attr("id", "tooltip1")
                 .html(storytext2);
@@ -332,7 +333,7 @@ class Map {
                 .append("div")
                 .attr("class", "story-tooltip")
                 .style("left", 50 + "px")
-                .style("top", -615 + "px")
+                .style("top", -565 + "px")
                 .attr("id", "tooltip3")
                 .html(storytext3);
 
@@ -342,7 +343,7 @@ class Map {
                 .attr("class", "lines")
                 .attr("width", 300 + "px")
                 .style("left", 100 + "px")
-                .style("top", -790 + "px")
+                .style("top", -740 + "px")
                 .style("position", "relative");
 
             let lData1 = [{
@@ -386,7 +387,7 @@ class Map {
                 .attr("class", "lines")
                 .attr("width", 380 + "px")
                 .style("left", 120 + "px")
-                .style("top", -1058 + "px")
+                .style("top", -1008 + "px")
                 .style("position", "relative");
 
             let lData2 = [{
