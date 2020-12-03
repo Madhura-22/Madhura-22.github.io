@@ -151,7 +151,7 @@ class Liney{
      d3.selectAll(".legendline").remove();
 
 
-      let width = 700;
+      let width = 900;
       let height = 300;
       let that = this;
       let trialData1 = this.data.Total.filter(d => d.State==that.activeState);  
