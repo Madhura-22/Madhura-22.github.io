@@ -249,7 +249,7 @@ input:checked + .slider1:before {
   
     text-align: center;
     font-size: 50px;
-    font-family: ui-serif;
+    font-family:  'Yatra One', cursive;
     color: rgb(0, 63, 92);
 }
 
